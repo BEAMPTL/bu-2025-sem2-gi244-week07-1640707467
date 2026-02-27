@@ -14,16 +14,9 @@ public class RepeatBackground : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameObject playerGO = GameObject.Find("Player");
-        PlayerController player = playerGO.GetComponent<PlayerController>();
-        if (player.isGameOver == true)
-        {
-            return;
-        }
-
         float distance = startPos.x - transform.position.x;
         Debug.Log($"distance:{distance}");
-        if (distance > bgWidth/2)
+        if (distance > bgWidth)
         {
             transform.position = startPos;
         }
