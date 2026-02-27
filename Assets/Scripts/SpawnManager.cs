@@ -7,7 +7,7 @@ public class SpawnManager : MonoBehaviour
 
     void Start()
     {
-
+        InvokeRepeating(nameof(Spawn),0f,2f);
     }
 
     void Spawn()
