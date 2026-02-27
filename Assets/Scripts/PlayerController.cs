@@ -9,11 +9,13 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private InputAction jumpAction;
     private bool isOnGround=true;
+    public bool isGameOver =false;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
         jumpAction = InputSystem.actions.FindAction("Jump");
+        isGameOver = false;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -36,7 +38,12 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Hit" + collision.gameObject.name);
         if (collision.gameObject.CompareTag("Ground"))
         {
-            isOnGround=true;
+            isOnGround = true;
+        }
+        else if (collision.gameObject.CompareTag("Ostacle"))
+        {
+            Debug.Log("Game Over");
+            isGameOver = true;
         }
     }
 }   
